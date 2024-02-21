@@ -41,9 +41,9 @@ public class Client {
 		String line = "";
 
 		// keep reading until "Over" is input
-		while (!line.equals("Over")) {
+		/*while (!line.equals("Over")) {
 			try {
-				line = input.readLine(); // do not use this
+				line = input.readLine(); // do not use thisTODO:ficks
 				out.writeUTF(line);
 			}
 			catch (IOException i) {
@@ -52,7 +52,7 @@ public class Client {
 		}
 
 		// close the connection
-		try {
+		*/try {
 			input.close();
 			out.close();
 			socket.close();
