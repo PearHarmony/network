@@ -6,7 +6,7 @@ public class KILLME {
 	}
 	public void start()
 	{
-		Server server = new Server(5000);
-		Client client = new Client("localhost", 5000);
+		new Server(5000);
+		new Client("localhost", 5000);
 	}
 }

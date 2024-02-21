@@ -1,3 +1,4 @@
+package org.pearharmony;
 // A Java program for a Client
 import java.io.*;
 import java.net.*;
@@ -42,7 +43,7 @@ public class Client {
 		// keep reading until "Over" is input
 		while (!line.equals("Over")) {
 			try {
-				line = input.readLine();
+				line = input.readLine(); // do not use this
 				out.writeUTF(line);
 			}
 			catch (IOException i) {
