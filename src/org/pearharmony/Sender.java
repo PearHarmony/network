@@ -2,31 +2,36 @@ package org.pearharmony;
 // A Java program for a Client
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
-public class Client {
+public class Sender implements Runnable {
 	// initialize socket and input output streams
 	private Socket socket = null;
-	private DataInputStream input = null;
 	private DataOutputStream out = null;
-
+	private String address;
+	private int port;
+	Scanner in = new Scanner(System.in);
 	// constructor to put ip address and port
 	/**
 	 * @param address
 	 * @param port
 	 */
-	public Client(String address, int port)
+	public Sender(String _address, int _port)
+	{
+		address=_address;
+		port=_port;
+	}
+	public void run()
 	{
 		// establish a connection
 		try {
 			socket = new Socket(address, port);
-			System.out.println("Connected");
+			System.out.println("Sender: Connected");
 
 			// takes input from terminal
-			input = new DataInputStream(System.in);
 
 			// sends output to the socket
-			out = new DataOutputStream(
-				socket.getOutputStream());
+			out = new DataOutputStream(socket.getOutputStream());
 		}
 		catch (UnknownHostException u) {
 			System.out.println(u);
@@ -41,9 +46,10 @@ public class Client {
 		String line = "";
 
 		// keep reading until "Over" is input
-		/*while (!line.equals("Over")) {
+		while (!line.contains("[eof]")) {
 			try {
-				line = input.readLine(); // do not use thisTODO:ficks
+				//line = "danielsucks[eof]";
+				line = in.nextLine(); // do not use thisTODO:ficks
 				out.writeUTF(line);
 			}
 			catch (IOException i) {
@@ -52,9 +58,9 @@ public class Client {
 		}
 
 		// close the connection
-		*/try {
-			input.close();
+		try {
 			out.close();
+			in.close();
 			socket.close();
 		}
 		catch (IOException i) {
