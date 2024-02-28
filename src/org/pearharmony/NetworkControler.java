@@ -1,7 +1,7 @@
 package org.pearharmony;
 
-public class Controler {
-    public Controler()
+public class NetworkControler {
+    public NetworkControler()
     {
 
     }
@@ -10,5 +10,11 @@ public class Controler {
         Sender client = new Sender(_ip,_port,_type,_data);
         Thread sender = new Thread(client);
         sender.start();
+    }
+    public void startListening(int _port)
+    {
+        Listener host = new Listener(_port);
+        Thread listener = new Thread(host);
+        listener.start();
     }
 }

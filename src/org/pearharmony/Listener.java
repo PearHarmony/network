@@ -31,7 +31,7 @@ public class Listener implements Runnable
 
 			String line = "";
 
-			// reads message from client until "Over" is sent
+			// reads message from client until "[eof]" is sent
 			while (!line.contains("[eof]"))
 			{
 				try

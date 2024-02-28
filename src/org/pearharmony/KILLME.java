@@ -1,3 +1,5 @@
+/*
+TODO: Killy myself
 package org.pearharmony;
 
 import java.util.Scanner;
@@ -28,3 +30,4 @@ public class KILLME{
 	}
 	}
 }
+*/
