@@ -9,15 +9,13 @@ import java.io.*;
 
 public class Decoder {
 
-    private static String HOME = System.getProperty("user.home");
-    
     public String textDecode(byte[] _data)
     {
         return new String(_data, StandardCharsets.UTF_8);
     }
-    public void pictureDecode(byte[] _data)
+    public void pictureDecode(byte[] _data,String _path)
     {
-        Path path = Paths.get(HOME, "newfile.png");
+        Path path = Paths.get(_path, System.currentTimeMillis()+".png");
         try {
             Files.write(path, _data,StandardOpenOption.CREATE);
         } catch (IOException e) {

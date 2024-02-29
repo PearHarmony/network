@@ -30,10 +30,7 @@ public class Sender implements Runnable {
 		// establish a connection
 		try {
 			socket = new Socket(address, port);
-			System.out.println("Sender: Connected");
-
-			// takes input from terminal
-
+			System.out.println("Sender: Connected");//TODO: Remove
 			// sends output to the socket
 			out = new DataOutputStream(socket.getOutputStream());
 		} catch (UnknownHostException u) {
@@ -50,7 +47,6 @@ public class Sender implements Runnable {
 			out.close();
 			socket.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

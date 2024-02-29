@@ -19,12 +19,12 @@ public class Listener implements Runnable
 		try
 		{
 			server = new ServerSocket(port);
-			System.out.println("Listener: Started");
+			System.out.println("Listener: Started");//TODO: Remove
 
-			System.out.println("Listener: Waiting for a sender ...");
+			System.out.println("Listener: Waiting for a sender ...");//TODO: Remove
 
 			socket = server.accept();
-			System.out.println("Listener: Sender accepted");
+			System.out.println("Listener: Sender accepted");//TODO: Remove
 
 			// takes input from the client socket
 			in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
@@ -37,14 +37,14 @@ public class Listener implements Runnable
 				try
 				{
 					line = in.readUTF();
-					System.out.println("Listener: ["+socket.getInetAddress()+":"+socket.getPort()+"]: "+line);
+					System.out.println("Listener: ["+socket.getInetAddress()+":"+socket.getPort()+"]: "+line);//TODO: Remove
 				}
 				catch(IOException i)
 				{
-					System.out.println(i);
+					System.out.println(i);//TODO: Remove
 				}
 			}
-			System.out.println("Listener: Closing connection");
+			System.out.println("Listener: Closing connection");//TODO: Remove
 
 			// close connection
 			socket.close();
@@ -52,7 +52,7 @@ public class Listener implements Runnable
 		}
 		catch(IOException i)
 		{
-			System.out.println(i);
+			System.out.println(i);//TODO: Remove
 		}
 	}
 
