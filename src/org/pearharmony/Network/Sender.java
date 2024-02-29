@@ -1,4 +1,4 @@
-package org.pearharmony;
+package org.pearharmony.Network;
 
 // A Java program for a Client
 import java.io.*;
@@ -13,16 +13,10 @@ public class Sender implements Runnable {
 	byte type;
 	byte[] data;
 
-	// constructor to put ip address and port
-	/**
-	 * @param address
-	 * @param port
-	 */
-	public Sender(String _address, int _port, byte _type, byte[] _data) {
+	public Sender(String _address, int _port, byte[] _data) {
 		address = _address;
 		port = _port;
 		data = _data;
-		type = _type;
 	}
 
 	public void run() {
@@ -40,17 +34,11 @@ public class Sender implements Runnable {
 		}
 
 		try {
-			byte[] pack = new byte[data.length + 1];
-			pack[0] = type;
-			for (int i = 0; i < data.length; i++) {
-				pack[i + 1] = data[i];
-			}
-			out.write(pack);
+			out.write(data);
 			out.close();
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
 }

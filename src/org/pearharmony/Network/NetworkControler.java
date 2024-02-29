@@ -1,12 +1,12 @@
-package org.pearharmony;
+package org.pearharmony.Network;
 
 public class NetworkControler {
     public NetworkControler() {
 
     }
 
-    public void send2Peer(String _ip, int _port, byte _type, byte[] _data) {
-        Sender client = new Sender(_ip, _port, _type, _data);
+    public void send2Peer(String _ip, int _port, byte[] _data) {
+        Sender client = new Sender(_ip, _port, _data);
         Thread sender = new Thread(client);
         sender.start();
     }
